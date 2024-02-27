@@ -9,8 +9,14 @@ const loadPhone = async (searchText) => {
 const displayPhones = phones => {
     const phoneContainer=document.getElementById('phone-container');
     phoneContainer.textContent='';
+    const showAll=document.getElementById('show-all');
+    if(phones.length>12){
+        showAll.classList.remove('hidden')
+    } else
+    {showAll.classList.add('hidden');}
+    phones=phones.slice(0,12);
     phones.forEach(phone => {
-        console.log(phone)
+        // console.log(phone)
         //  CREATE DIV
         const phoneCard = document.createElement('div');
         phoneCard.classList = `card  bg-gray-100 p-4 shadow-xl  `;
