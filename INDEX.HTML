@@ -15,10 +15,20 @@
     </header>
 
     <main class="container mx-auto ">
+
+        <!-- SEARCH -->
         <section>
-            <input id="search-field" type="text" placeholder="Search ...." class="input input-bordered w-full max-w-xs" />
+            <input id="search-field" type="text" placeholder="Search ...."
+                class="input input-bordered w-full max-w-xs" />
             <button onclick="handleSearch()" class="btn btn-accent">Search</button>
         </section>
+        <!-- LOADING -->
+        <section>
+            <div id="loading-container" class="hidden">
+                <span class="loading loading-spinner loading-md"></span>
+            </div>
+        </section>
+        <!-- PHONE -->
         <section>
             <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
                 <!-- <div class="card w-96 bg-gray-100 shadow-xl">

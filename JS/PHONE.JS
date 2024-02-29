@@ -7,14 +7,13 @@ const loadPhone = async (searchText) => {
     displayPhones(phones);
 }
 const displayPhones = phones => {
-    const phoneContainer=document.getElementById('phone-container');
-    phoneContainer.textContent='';
-    const showAll=document.getElementById('show-all');
-    if(phones.length>12){
+    const phoneContainer = document.getElementById('phone-container');
+    phoneContainer.textContent = '';
+    const showAll = document.getElementById('show-all');
+    if (phones.length > 12) {
         showAll.classList.remove('hidden')
-    } else
-    {showAll.classList.add('hidden');}
-    phones=phones.slice(0,12);
+    } else { showAll.classList.add('hidden'); }
+    phones = phones.slice(0, 12);
     phones.forEach(phone => {
         // console.log(phone)
         //  CREATE DIV
@@ -30,11 +29,25 @@ const displayPhones = phones => {
         </div>`;
         phoneContainer.appendChild(phoneCard);
     })
+    loadingContinner(false);
 }
 
-const handleSearch=()=>{
-const searchField=document.getElementById('search-field');
-const searchText=searchField.value;
-// console.log(searchText);
-loadPhone(searchText);
+const handleSearch = () => {
+    loadingContinner(true);
+    const searchField = document.getElementById('search-field');
+    const searchText = searchField.value;
+    // console.log(searchText);
+    loadPhone(searchText);
+}
+
+
+
+const loadingContinner = (isLoading) => {
+    const loadContain = document.getElementById('loading-container');
+    // console.log('loadded');
+    if (isLoading) {
+        loadContain.classList.remove('hidden');
+    } else {
+        loadContain.classList.add('hidden');
+    }
 }
